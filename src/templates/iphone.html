@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Twitter Web API Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>This page has I Phone X Trending HashTags</h1>
+  <a href="../../landing/" class="btn btn-danger" role="button">Apple Trending</a>
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+      {% for obj in object_list %}
+          <div class="well col-sm-12">
+
+            <div class="white-text">Details Of The Hashtag:- {{ obj.text }}</div> 
+              <span class="white-text">User ID:- {{obj.user_id}}</span><br>
+              <span class="white-text">Name Of User:- {{obj.name}}</span><br>
+              <span class="white-text">Source:- {{obj.source}}</span><br>
+              <span class="white-text">Author:- {{obj.author}}</span><br>
+              <span class="white-text">Time Zone:- {{obj.time_zone}}</span><br>
+              <span class="white-text">User Language:- {{obj.user_language}}</span><br>
+              <span class="white-text">Followers:- {{obj.followers}}</span><br>
+              <span class="white-text">User Description:- {{obj.user_description}}</span><br>
+              <span class="white-text">Geo Enabled:- {{obj.geo_enabled}}</span><br>
+              <span class="white-text">Friends:- {{obj.friends}}</span><br>
+              <span class="white-text">Retweets:- {{obj.retweets}}</span><br>
+              <span class="white-text">Location:- {{obj.location}}</span><br>
+              <span class="white-text">Coordinates:- {{obj.coordinates}}</span><br>
+              <span class="white-text">Place:- {{obj.place}}</span><br>
+              <span class="white-text">Status Created On Twitter:- {{obj.status_created}}</span><br>
+              <span class="white-text">Scraped Date:- {{obj.created}}</span><br>
+              <p>{{obj.tweet}} <a href ="{{obj.link}}" target="_blank">{{obj.link}}</a></p>
+
+          </div>
+      {% endfor %} 
+
+      <div class="pagination">
+        <span class="step-links">
+          {% if object_list.has_previous %}
+            <a href="?page={{ object_list.previous_page_number }}&q={{request.GET.q}}"><font size="5">previous</font></a>
+          {% endif %}
+          <span class="current">
+            <font size="5">Page </font>{{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+          </span>
+          {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}&q={{request.GET.q}}"><font size="5">next</font></a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
