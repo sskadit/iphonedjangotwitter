@@ -14,13 +14,15 @@ run celery to start twitter API as a cron command:- python manage.py celeryd -v 
 
 cron is a perodic task which will run every 5 mins.
 
-![alt text](http://url/to/img.png)
+In other terminal run manage.py runserver
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/sskadit/iphonedjangotwitter/blob/master/1.png)
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/sskadit/iphonedjangotwitter/blob/master/2.png)
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/sskadit/iphonedjangotwitter/blob/master/3.png)
+
+![alt text](https://github.com/sskadit/iphonedjangotwitter/blob/master/4.png)
 
 
 
